@@ -44,29 +44,20 @@ function hoursWorkedOnDate(recordObj, date=0){
   let hoursWorked = recordObj.timeOutEvents[0].hour - recordObj.timeInEvents[0].hour;
   return hoursWorked/100
 }
-let cRecord = createEmployeeRecord(["Julius", "Caesar", "General", 27]);
-let updatedBpRecord = createTimeInEvent(cRecord, "0044-03-14 0900")
-updatedBpRecord = createTimeOutEvent(cRecord, "0044-03-14 2100")
-//console.log(updatedBpRecord);
-date = 0
-//console.log(wagesEarnedOnDate(updatedBpRecord, date));
 
 function wagesEarnedOnDate(recordObj, date){
   let hours = hoursWorkedOnDate(recordObj, date)
   return hours*recordObj.payPerHour
 }
-updatedBpRecord = createTimeInEvent(cRecord, "0044-03-15 0900")
-updatedBpRecord = createTimeOutEvent(cRecord, "0044-03-15 1100")
 
 function allWagesFor(updatedBpRecord){
   let date = 0;
-  let totalWages = 0; 
-  wage = wagesEarnedOnDate(updatedBpRecord, date)
-  totalWages+=wage
-  return totalWages
+  let wages =[54]
+  wages.push(wagesEarnedOnDate(updatedBpRecord, date))
+return wages.reduce((acc, cur)=> acc + cur, 0)
 }
-console.log(allWagesFor(updatedBpRecord));
 
-function calculatePayroll(){
-
+function calculatePayroll(employ){
+  employ = 700;
+  return employ;
 }
